@@ -19,7 +19,7 @@ twilio_api_key_secret = os.environ.get('TWILIO_API_KEY_SECRET')
 print(twilio_account_sid)
 #app = django(__name__)
 
-@csrf_exempt
+@csrf_exempt            #In order to use POST method
 def login(request):
     print("ok")
     r_json = json.loads(request.body)
@@ -55,3 +55,12 @@ def users(request):
     ctx = {}
     doc = chatuser_ext.render(ctx)
     return HttpResponse(doc)
+
+@csrf_exempt
+def photo(request):
+    if request.is_ajax():
+        message = "Yes, AJAX!"
+    else:
+        message = "Not Ajax"
+    print(message)
+    return HttpResponse(message)

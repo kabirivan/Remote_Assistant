@@ -28,13 +28,7 @@ header {
 header #logo img {
     margin: 0px;
 }
-.header.inner{
-    font-size: 25px;
-    font-style: normal;
-    font-family: 'Baloo Tammudu 2', cursive;
-    background: rgb(0, 44, 29);
-    color: rgb(255, 255, 255);
-}
+
 
 img{
     display: block;

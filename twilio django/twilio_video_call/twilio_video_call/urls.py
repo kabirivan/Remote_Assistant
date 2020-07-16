@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.greeting, name='index'),
     path('chat_assis', views.chat, name='chat1'),
     path('chat_user', views.users, name='chat2'),
+    path('photo', views.photo, name='photo'),
     path('login', views.login, name='login'),
 ]
 

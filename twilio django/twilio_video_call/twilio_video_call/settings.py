@@ -56,7 +56,7 @@ ROOT_URLCONF = 'twilio_video_call.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/django/twilio django/twilio_video_call/static'],
+        'DIRS': ['C:/Users/Jazmin Rodriguez/Dropbox/Chauchitas Jona/Remote_Assistant/twilio django/twilio_video_call/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
