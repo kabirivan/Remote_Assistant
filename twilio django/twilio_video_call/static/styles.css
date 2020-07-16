@@ -1,0 +1,90 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    border: 0;
+    background-color: rgb(189, 210, 228);
+    color: rgb(13, 31, 92);
+}
+body{
+    background-color: rgb(189, 210, 228);
+    color: rgb(13, 31, 92);
+    font-family: 'Baloo Tammudu 1', cursive;
+    margin: 0 auto;
+    padding: 4%;
+}
+
+header {
+    width: 10%;
+    padding: 0%;
+    background-color: rgb(189, 210, 228);
+    color: rgb(13, 31, 92);
+    text-align: center;
+    font-family: 'Baloo Tammudu 1', cursive;
+    font-size: 100%;
+    border: 2% , solid  rgb(189, 210, 228);
+    display: inline-block;
+}
+
+header #logo img {
+    margin: 0px;
+}
+.header.inner{
+    font-size: 25px;
+    font-style: normal;
+    font-family: 'Baloo Tammudu 2', cursive;
+    background: rgb(0, 44, 29);
+    color: rgb(255, 255, 255);
+}
+
+img{
+    display: block;
+    margin: auto;    
+}
+
+h1, h2, h3 {
+    width: 10%;
+    padding: 0%;
+    background-color: rgb(189, 210, 228);
+    color: rgb(13, 31, 92);
+    text-align: center;
+    font-family: 'Baloo Tammudu 1', cursive;
+    font-size: 50%;
+    border: 20% , solid  rgb(189, 210, 228);
+}
+
+h4 {
+    width: 10%;
+    padding: 4%;
+    background-color: rgb(189, 210, 228);
+    color: rgb(13, 31, 92);
+    text-align: left;
+    font-family: 'Baloo Tammudu 1', cursive;
+    font-size: 50%;
+    border: 20% , solid  rgb(255, 255, 255) ;
+}
+
+.container {
+    margin-top: 20%;
+    width: 10%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.participant {
+    margin-bottom: 5%;
+    margin-right: 5%;
+}
+.participant div {
+    text-align: center;
+}
+.participant div:first-child {
+    width: 500px;
+    height: 380px;
+    background-color: #ccc;
+    border: 1% solid black;
+}
+.participant video {
+    width: 100%;
+    height: 100%;
+}
+
+

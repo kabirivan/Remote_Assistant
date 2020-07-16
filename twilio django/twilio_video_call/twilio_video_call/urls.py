@@ -1,4 +1,4 @@
-"""interface URL Configuration
+"""twilio_video_call URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.greeting, name='index'),
-    path('chat/', views.chat, name='index'),
+    path('chat_assis', views.chat, name='chat1'),
+    path('chat_user', views.users, name='chat2'),
+    path('login', views.login, name='login'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

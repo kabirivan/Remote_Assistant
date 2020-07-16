@@ -1,0 +1,36 @@
+
+{% load static %}
+{% load bootstrap4 %}
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    </head>
+    <body>  
+        <header>
+                    <div class = "header.inner">
+                        <div class = "logo">
+                            <a href = ""  id = "logo"> 
+                            <img style="width:150px; height:40px;"src = "{% static 'logo.png' %}" alt = "Logo Company">
+                        </div>
+                        <h1>Remote Assistance</h1>
+                    </div>
+        </header>
+        <form>
+            Name: <input type="text" id="username" placeholder="Name" required>
+            <button id="join_leave">Join call</button>
+        </form>
+        <p id="count">Disconnected.</p>
+          <div id="container" class="container">
+            <button id="join_leave">Photo</button>
+            <!-- more participants will be added dynamically here -->
+        </div>
+        <div id="container" class="container">
+            <div id="local" class="participant"><div></div><div>Assistant</div></div>
+            <!-- more participants will be added dynamically here -->
+        </div>
+
+        <script src="//media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js"></script>
+        <script src="{% static 'app.js' %}"></script>
+    </body>
+</html>
