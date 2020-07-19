@@ -1,0 +1,79 @@
+
+{% load static %}
+{% load bootstrap4 %}
+{% csrf_token %}
+
+{# Display a form #}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Remote Assistance</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+    <link rel = "stylesheet", href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="{% static 'css/styles.cssbootstrap.min.css' %}" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="FreakJazz">
+
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+
+<body>
+    <header class="card">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        Remote Assistance
+      </a>
+      </nav> 
+    </header>
+    <div class="card">
+      <div class="card-header">
+        Manager Panel
+      </div>
+      <div class="card-body">
+        <h5 >Welcome to the Control Panel of Remote Assistance</h5>
+        <p>Login to the administrator so that you can guide your client in the best way</p>
+        <form action="/sing_up", method = "POST", class="col s12" id="formulario">	
+            {% csrf_token %}	
+            {#{% buttons %}#}
+            <button class="btn btn-primary" type="submit" id = "sing_up">
+                <i class="material-icons right">Log in</i>
+            {#{% endbuttons %}#}
+        </button>
+      </div>
+      <div class="card-footer text-muted">
+       <p class="mt-5 mb-3 text-muted text-center">&copy; 2020-Remote Assistance</p>
+      </div>
+    </div>    
+    {#<script src="{% static 'app1.js' %}"></script>#}
+</body>
+</html>
+
