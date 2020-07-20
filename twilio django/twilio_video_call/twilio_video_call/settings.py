@@ -56,7 +56,7 @@ ROOT_URLCONF = 'twilio_video_call.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Jazmin Rodriguez/Dropbox/Chauchitas Jona/Remote_Assistant/twilio django/twilio_video_call/static'],
+        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/Remote_Assistant/twilio django/twilio_video_call/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,10 +117,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Add these new lines
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 # Static files (CSS, JavaScript, Images)    
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
