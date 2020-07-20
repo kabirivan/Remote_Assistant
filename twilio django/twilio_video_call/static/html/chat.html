@@ -1,0 +1,92 @@
+
+{% load static %}
+{% load bootstrap4 %}
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Remote Assistance-Assistant</title>
+    <link rel = "stylesheet", href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="{% static 'css/styles.cssbootstrap.min.css' %}" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="FreakJazz">
+
+
+    <meta name="theme-color" content="#563d7c">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>  
+        <header>
+                    <div class = "header.inner">
+                        <div class = "logo">
+                            <a href = ""  id = "logo"> 
+                            <img style="width:150px; height:40px;"src = "{% static 'images/logo.png' %}" alt = "Logo Company">
+                        </div>
+                        <h1>Remote Assistance</h1>
+                    </div>
+        </header>
+        <!-- this form is to join the callvideo-->
+
+        <form class = "form"> 
+            <p>Name: </p>
+            <input class="input",type="text" id="username" placeholder="Name" required>
+            <button class= "btn btn-sm btn-primary",id="join_leave">Join call</button>
+        </form>
+        <p id="count">Disconnected.</p>
+
+        <div id="container" class="container">
+            <form action="/link_call", method = "POST", class="col s12" id="link_call">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Send the link to the Client</label>
+                    <button class= "btn btn-sm btn-primary",id="link", type = "submit">Link Generated</button>
+                </div>
+            </form>
+          
+            </div>
+
+        <!-- this form is to take the picture-->
+        <div id="container" class="container">
+            <form action="/photo", method = "POST", class="col s12" id="take_photo">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Take the photograph</label>
+                    <button class= "btn btn-sm btn-primary",id="photos", type = "submit">Photo</button>
+                </div>
+            </form>
+          
+            </div>
+        <div id="container" class="container">
+            <div id="local" class="participant"><div></div><div>Assistant</div></div>
+            <!-- more participants will be added dynamically here -->
+        </div>
+
+        <script src="//media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js"></script>
+        <script src="{% static 'app.js' %}"></script>
+    </body>
+</html>
