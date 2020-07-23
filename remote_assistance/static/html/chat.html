@@ -27,13 +27,12 @@
                 <div id="container" class="container"></div>
             </div>
             <div class="card" style="width: 50%;">
-                <button style="width: 100%;" type="button" class="btn btn-primary">Tomar foto</button>
-                <img style="width:70%;margin-left: 16%" src = "{% static 'images/icon.png' %}" alt="">
+                <button id="take_photo" style="width: 100%;" type="button" class="btn btn-primary">Tomar foto</button>
+                <img id="photo" style="width:70%;margin-left: 16%" src = "{% static 'images/icon.png' %}" alt="">
             </div>
+            <canvas id="canvas" style="display: none;"></canvas>
         </div>        
-        
-        </div>
-
+        <p class="mt-1 mb-3 text-muted text-center">&copy; 2020-Remote Assistance</p>
         <script src="//media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js"></script>
         <script src="{% static 'js/app.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

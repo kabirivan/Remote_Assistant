@@ -1,11 +1,14 @@
 const button = document.getElementById('join_leave');
 const container = document.getElementById('container');
 const count = document.getElementById('count');
-const button1 = document.getElementById('photo');
+const takePhoto = document.getElementById('take_photo');
+const canvas = document.getElementById('canvas');
+const photo = document.getElementById('photo');
 var connected = false;
 var room;
 var localtracks;
 var user_connected = false;
+var videoPhoto;
 
 Twilio.Video.createLocalTracks({
     audio: true,
@@ -91,6 +94,7 @@ function participantDisconnected(participant) {
 
 function trackSubscribed(div, track) {
     div.appendChild(track.attach());
+    videoPhoto = track.attach();
 };
 
 function trackUnsubscribed(track) {
@@ -108,4 +112,15 @@ function disconnect() {
     user_connected = false;
 };
 
+function fn_get_photo(event){
+    event.preventDefault();
+    let contexto = canvas.getContext("2d");
+    canvas.width = videoPhoto.videoWidth;
+    canvas.height = videoPhoto.videoHeight;
+    contexto.drawImage(videoPhoto, 0, 0, canvas.width, canvas.height);
+    photo.src = canvas.toDataURL();
+
+}
+
 button.addEventListener('click', connectButtonHandler);
+takePhoto.addEventListener('click',fn_get_photo);

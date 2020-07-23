@@ -2,6 +2,9 @@ const button = document.getElementById('join_leave');
 const container = document.getElementById('container');
 const photo = document.querySelector('#photo');
 const canvas = document.querySelector("#canvas");
+const paragraph = document.getElementById('paragraph');
+const finalParagraph = document.getElementById('final_paragraph');
+const local = document.getElementById('local')
 var connected = false;
 var room;
 var localtracks;
@@ -11,17 +14,23 @@ Twilio.Video.createLocalTracks({
     audio: true,
     video: {facingMode : 'environment'}
 }).then(function(localTracks) {
-    var localMediaContainer = document.getElementById('local').firstChild;
+    
     localtracks = localTracks;
-    localTracks.forEach(function(track) {
-      localMediaContainer.appendChild(track.attach());
-    });
+    
   });
-
+  //var localMediaContainer = document.getElementById('local').firstChild;
+  //localtracks.forEach(function(track) {
+  //  localMediaContainer.appendChild(track.attach());
+  //});
 function connectButtonHandler(event) {
     console.log('ok2')
     event.preventDefault();
     if (!connected) {
+        var localMediaContainer = document.getElementById('local').firstChild;
+        localtracks.forEach(function(track) {
+        localMediaContainer.appendChild(track.attach());
+        });
+        paragraph.setAttribute('style','display: none');
         var username = 'Usuario';
         button.disabled = true;
         button.innerHTML = 'Conectando...';
@@ -110,6 +119,10 @@ function disconnect() {
     if(user_connected){
         container.removeChild(container.lastChild);
     }
+    local.setAttribute('style','display: none')
+    finalParagraph.setAttribute('style','display: flex;justify-content: center;margin-top: 2%')
+    button.setAttribute('style','display: none')
+    button.disabled = true;
     button.innerHTML = 'Unirse';
     button.setAttribute('class','btn btn-success');
     connected = false;
