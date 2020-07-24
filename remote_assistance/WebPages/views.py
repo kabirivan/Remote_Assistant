@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-#from django import request, abort
 from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VideoGrant
 from django.http import HttpResponse
@@ -8,7 +7,6 @@ from django.template  import Template, Context, loader
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 import json
-from twilio.twiml.voice_response import Dial, VoiceResponse, Gather
 from twilio.rest import Client
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -17,8 +15,8 @@ load_dotenv()
 twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 twilio_api_key_sid = os.environ.get('TWILIO_API_KEY_SID')
 twilio_api_key_secret = os.environ.get('TWILIO_API_KEY_SECRET')
-print(twilio_account_sid)
-
+twilio_auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+twilio_phone_number = os.environ.get('TWILIO_PHONE_NUMBER')
 # Create your views here.
 
 @csrf_exempt            #In order to use POST method
@@ -34,6 +32,20 @@ def login(request):
 
     return JsonResponse({'token': token.to_jwt().decode(), 'errorMsg':'errorMsg'})
 
+@csrf_exempt            #In order to use POST method
+def send_sms(request):
+    print("ok sms")
+    r_json = json.loads(request.body)
+    number = r_json['phoneNumber']
+    url = r_json['url']
+    client = Client(twilio_account_sid, twilio_auth_token)
+    client.messages.create(
+                from_=twilio_phone_number,
+                to=number,
+                body='Link para tener una llamada con el asesor:' + url)
+    return JsonResponse({'response': 'ok', 'errorMsg':'errorMsg'})
+
+@csrf_exempt 
 def greeting(request):
     index_ext = loader.get_template('html/index.html')
     # a dictionary is necessary with loader template
@@ -55,7 +67,6 @@ def prueba(request):
 
 @csrf_exempt
 def chat(request):
-
     chat_ext = loader.get_template('html/chat.html')
     ctx = {}
     doc = chat_ext.render(ctx)
@@ -69,17 +80,6 @@ def users(request):
     return HttpResponse(doc)
 
 @csrf_exempt
-def photo(request):
-    if request.is_ajax():
-        message = "Yes, AJAX!"
-    else:
-        message = "Not Ajax"
-    print(message)
-    return HttpResponse(message)
-
-@csrf_exempt
 def link(request):
     print("You are in the function link")
     return HttpResponse()
-
-

@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Remote Assistance</title>
+    <title>AVSupport</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -40,29 +40,28 @@
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
         <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-        Remote Assistance
+        AVSupport
       </a>
       </nav> 
     </header>
-    <div class="card">
-      <div class="card-header">
-        Manager Panel
-      </div>
-      <div class="card-body">
-        <h5 >Welcome to the Control Panel of Remote Assistance</h5>
-        <p>Login to the administrator so that you can guide your client in the best way</p>
-        <form action="/sing_up", method = "POST", class="col s12" id="formulario">	
+        <h5 style="display: flex;justify-content: center;margin-top: 1.5%;text-align: justify;"class = "text-center">Bienvenido al Panel de Control de Asistencia Remota</h5>
+        <p class="text-center" style="display: flex;justify-content: center;margin-top: 1.5%;text-align: justify;">Inicie sesión para poder guiar a su asegurado de la mejor manera.</p>
+      <div style="display: flex;justify-content: center;">
+        <form style="display: flex;justify-content: center;" action="/sing_up", method = "POST", class="col s12" id="formulario">	
             {% csrf_token %}	
             {#{% buttons %}#}
-            <button class="btn btn-primary" type="submit" id = "sing_up">
-                <i class="material-icons right">Log in</i>
-            {#{% endbuttons %}#}
+            <button class="btn btn-primary center" type="submit" id = "sing_up">
+                <i class="material-icons right">Ingresar</i>
+            {#{% endbuttons %}#}   
         </button>
+        </form>
       </div>
-      <div class="card-footer text-muted">
-       <p class="mt-5 mb-3 text-muted text-center">&copy; 2020-Remote Assistance</p>
-      </div>
-    </div>    
+
+      <footer class="card-footer text-muted">
+       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020 - AVSupport | JRTec</p>
+      </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

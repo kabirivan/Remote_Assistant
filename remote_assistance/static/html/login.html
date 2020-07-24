@@ -8,13 +8,11 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
     <meta name="theme-color" content="#563d7c">
-    <title>Remote Assistance-Login</title>
+    <title>AVSupport</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     
-
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -39,26 +37,26 @@
   <form action="/chat_assis", method = "POST", class="form-signin" id="formulario">	
             {% csrf_token %}
   <div class="text-center mb-4">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Ingreso</h1>
   </div>
   
   <div class="form-label-group">
     <input type="username" id="inputUser" class="form-control" placeholder="Username" required autofocus>
-    <label for="inputEmail">Username</label>
+    <label for="inputEmail">Usuario</label>
   </div>
 
   <div class="form-label-group">
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Contraseña</label>
   </div>
 
   <div class="checkbox mb-3">
     <label>
-      <input type="checkbox" value="remember-me"> Remember me
+      <input type="checkbox" value="remember-me"> Recordar
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted text-center">&copy; 2020-Remote Assistance</p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2020 - AVSupport | JRTec</p>
 </form>
   <i class="fas fa-user"></i>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

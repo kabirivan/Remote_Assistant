@@ -1,14 +1,27 @@
 const button = document.getElementById('join_leave');
 const container = document.getElementById('container');
-const count = document.getElementById('count');
 const takePhoto = document.getElementById('take_photo');
 const canvas = document.getElementById('canvas');
 const photo = document.getElementById('photo');
+const photo1 = document.getElementById('photo1');
+const photo2 = document.getElementById('photo2');
+const photo3 = document.getElementById('photo3');
+const photo4 = document.getElementById('photo4');
+const photo5 = document.getElementById('photo5');
+const photo6 = document.getElementById('photo6');
+const photo7 = document.getElementById('photo7');
+const photo8 = document.getElementById('photo8');
+const count = document.getElementById('count');
+const numberInput = document.getElementById('phone_number');
+const urlInput = document.getElementById('url_msg');
+const smsButton = document.getElementById('sms_button');
 var connected = false;
 var room;
 var localtracks;
 var user_connected = false;
 var videoPhoto;
+var counter1 = 0;
+var counter2 = 0;
 
 Twilio.Video.createLocalTracks({
     audio: true,
@@ -114,13 +127,72 @@ function disconnect() {
 
 function fn_get_photo(event){
     event.preventDefault();
-    let contexto = canvas.getContext("2d");
-    canvas.width = videoPhoto.videoWidth;
-    canvas.height = videoPhoto.videoHeight;
-    contexto.drawImage(videoPhoto, 0, 0, canvas.width, canvas.height);
-    photo.src = canvas.toDataURL();
+    if(connected){
+        let contexto = canvas.getContext("2d");
+        canvas.width = videoPhoto.videoWidth;
+        canvas.height = videoPhoto.videoHeight;
+        contexto.drawImage(videoPhoto, 0, 0, canvas.width, canvas.height);
+        counter1 = counter1 + 1;
+        count.innerHTML = '<b>Fotos Tomadas:</b> ' + (counter1);
+        switch(counter2){
+            case 0:
+                var p = photo;
+                break;
+            case 1:
+                var p = photo1;
+                break;
+            case 2:
+                var p = photo2;
+                break;
+            case 3:
+                var p = photo3;
+                break;
+            case 4:
+                var p = photo4;
+                break;
+            case 5:
+                var p = photo5;
+                break;
+            case 6:
+                var p = photo6;
+                break;
+            case 7:
+                var p = photo7;
+                break;
+            case 8:
+                var p = photo8;
+                break;
+            default:
+                var p = photo;
+        }
+        p.src = canvas.toDataURL();
+        if(counter2 === 8){
+            counter2 = 0;
+        }else{
+            counter2 = counter2 + 1;
+        }
+    }
+}
 
+function sendMessage(event){
+    event.preventDefault();
+    var promise = new Promise((resolve, reject) => {
+        // get a token from the back end
+        fetch('/send_sms', {
+            method: 'POST',
+            body: JSON.stringify({
+                'phoneNumber': numberInput.value,
+                'url': urlInput.value})
+        }).then(res => res.json()).then(data => {
+            console.log(data.response);
+            resolve();
+        }).catch(() => {
+            reject();
+        });
+    });
+    return promise;
 }
 
 button.addEventListener('click', connectButtonHandler);
 takePhoto.addEventListener('click',fn_get_photo);
+smsButton.addEventListener('click',sendMessage)
