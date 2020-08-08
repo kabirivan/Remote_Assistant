@@ -55,7 +55,7 @@ ROOT_URLCONF = 'remote_assistance.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Juan Esteban/Documents/chauchas/django-twilio-video/remote_assistance/static'],
+        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/Remote_Assistant/remote_assistance/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
