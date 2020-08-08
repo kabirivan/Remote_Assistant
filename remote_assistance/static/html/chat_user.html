@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles_user.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="card">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">Asistencia Virtual
+                </a>
+            </nav> 
+        </header>
+        <form>
+            <p id="paragraph" style="display: flex;justify-content: center;margin-top: 1.5%;text-align: justify;">
+                Asegurese de estar en estos navegadores: Chrome, Firefox, Safari</br>
+                1. Se unirá a una llamada con un asistente remoto de la agencia.</br>
+                2. Asegúrese de haber dado permisos a la aplicación.</br>
+                3. Asegúrese de poner el volumen al máximo para escuchar al asesor o en su preferencia ponerse audífonos.</br>
+                4. De clic en el boton Unirse para comenzar con la llamada.</br>
+                5. Siga las instrucciones del asistente.</br>
+            </p>
+            <p id="final_paragraph" style="display: none;text-align: justify;">
+                Muchas gracias el asesor se va a comunicar con usted después para realizar los siguientes pasos</br>
+            </p>
+            <div style="display: flex;justify-content: center;">
+                <button id="join_leave" type="button" class="btn btn-success" style="margin-top: 1.5%;">Unirse</button>
+            </div>
+        </form>
+        <div id="container" class="card" style="width: 100%;height: 100%;margin-top: 1.5%;"></div>
+            <div id="local" class="participant" style="display: inline;"><div></div></div>
+            <!-- more participants will be added dynamically here -->
+        <canvas id="canvas" style="display: none;"></canvas>
+        <p class="mt-1 mb-3 text-muted text-center">&copy; 2020 - AVSupport | JRTec</p>
+        <script src="//media.twiliocdn.com/sdk/js/video/releases/2.7.0/twilio-video.min.js"></script>
+        <script src="{% static 'js/app1.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

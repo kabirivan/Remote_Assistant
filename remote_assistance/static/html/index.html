@@ -1,0 +1,70 @@
+
+{% load static %}
+{% csrf_token %}
+
+{# Display a form #}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>AVSupport</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+
+<body>
+    <header class="card">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        AVSupport
+      </a>
+      </nav> 
+    </header>
+        <h5 style="display: flex;justify-content: center;margin-top: 1.5%;text-align: justify;"class = "text-center">Bienvenido al Panel de Control de Asistencia Remota</h5>
+        <p class="text-center" style="display: flex;justify-content: center;margin-top: 1.5%;text-align: justify;">Inicie sesión para poder guiar a su asegurado de la mejor manera.</p>
+      <div style="display: flex;justify-content: center;">
+        <form style="display: flex;justify-content: center;" action="/sing_up", method = "POST", class="col s12" id="formulario">	
+            {% csrf_token %}	
+            {#{% buttons %}#}
+            <button class="btn btn-primary center" type="submit" id = "sing_up">
+                <i class="material-icons right">Ingresar</i>
+            {#{% endbuttons %}#}   
+        </button>
+        </form>
+      </div>
+
+      <footer class="card-footer text-muted">
+       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020 - AVSupport | JRTec</p>
+      </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+
